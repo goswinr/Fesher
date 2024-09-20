@@ -1,7 +1,6 @@
 
 # Fesher
 
-[![Fesher on nuget.org](https://img.shields.io/nuget/v/Fesher)](https://www.nuget.org/packages/Fesher/)
 [![Fesher on fuget.org](https://www.fuget.org/packages/Fesher/badge.svg)](https://www.fuget.org/packages/Fesher)
 ![code size](https://img.shields.io/github/languages/code-size/goswinr/Fesher.svg)
 [![license](https://img.shields.io/github/license/goswinr/Fesher)](LICENSE)
