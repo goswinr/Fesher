@@ -9,7 +9,17 @@
 
 Fesher is a library for colorful console output in the F# scripting editor [Fesh](https://github.com/goswinr/Fesh)
 
+### Usage
 
+```fsharp
+open Fesher
+
+Printfn.red "The red answer is %s!" 42
+Printfn.green "The green answer is %s!" 42
+
+```
+
+![Screenshot](https://raw.githubusercontent.com/goswinr/Fesher/main/Doc/screen.png)
 
 [See full API documentation on fuget.org](https://www.fuget.org/packages/Fesher)
 
