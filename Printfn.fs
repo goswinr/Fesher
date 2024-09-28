@@ -90,11 +90,13 @@ module AutoOpenPrint =
     /// Exposes functionality like print and clear of the Fesh Editor, when Fesher is loaded there
     type internal Fesh private () = // no public constructor
 
+        /// Red green blue text
         static let mutable printColor : int-> int -> int -> string -> unit = //changed via reflection below from Fesh
-            fun r g b s -> Console.Write s
+            fun _ _ _ s -> Console.Write s
 
+        /// Red green blue text
         static let mutable printNewLineColor : int-> int -> int -> string -> unit = //changed via reflection below from Fesh
-            fun r g b s -> Console.WriteLine s
+            fun _ _ _ s -> Console.WriteLine s
 
         static let mutable clear : unit -> unit = // changed via reflection below from Fesh
             fun () -> ()
