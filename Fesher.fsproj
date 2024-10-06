@@ -4,7 +4,6 @@
     <OutputType>Library</OutputType>
     <TargetFrameworks>net472;net6.0</TargetFrameworks>
     <LangVersion>preview</LangVersion>
-    <OtherFlags>$(OtherFlags)--warnon:3390</OtherFlags>
     <NeutralLanguage>en</NeutralLanguage>
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -14,20 +13,20 @@
     <Title>Fesher</Title>
     <Product>Fesher</Product>
     <PackageId>Fesher</PackageId>
-    <Version>0.0.1</Version>
-    <AssemblyVersion>0.0.1</AssemblyVersion>
-    <FileVersion>0.0.1</FileVersion>
+    <Version>0.1.0</Version>
+    <AssemblyVersion>0.1.0</AssemblyVersion>
+    <FileVersion>0.1.0</FileVersion>
     <PackageReleaseNotes>
-      - Printfn functions to find Fesh editor via Reflection
+      - new logo
 	  </PackageReleaseNotes>
     <Authors>GoswinR</Authors>
     <Copyright>Goswin Rothenthal 2024</Copyright>
     <Description>Fesher is a library for colorful console output in the F# scripting editor Fesh.</Description>
     <PackageDescription>Fesher is a library for colorful console output in the F# scripting editor Fesh</PackageDescription>
-    <WarningLevel>5</WarningLevel>
-    <!-- WarningLevel 3 is default , see https://github.com/dsyme/fsharp-presentations/blob/master/design-notes/off-by-default-warnings.md -->
-
+    <WarningLevel>5</WarningLevel> <!-- WarningLevel 3 is default , see https://github.com/dsyme/fsharp-presentations/blob/master/design-notes/off-by-default-warnings.md -->
+    <OtherFlags>$(OtherFlags)--warnon:3390</OtherFlags>
     <OtherFlags>$(OtherFlags) --warnon:1182</OtherFlags>     <!-- 1182: warn on unused variables -->
+   <Configuration>Release</Configuration>
   </PropertyGroup>
   <PropertyGroup>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
