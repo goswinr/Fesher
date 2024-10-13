@@ -280,7 +280,16 @@ module Printf =
     /// Very light, white and yellow colors are excluded
     /// The colors used by subsequent calls to this functions will have very distinct hues.
     /// This is achieved by using a golden-ratio-loop and an internal cache of the last generated color.
+    [<Obsolete("renamed to Printf.randomColor")>]
     let colorRnd msg =
+        let r,g,b = ColorUtil.random()
+        Printf.kprintf (fun s -> Fesh.PrintColor r g b s)  msg
+
+    /// Like printf but in Random Color if used in Fesh Editor. Does not add a new line at end.
+    /// Very light, white and yellow colors are excluded
+    /// The colors used by subsequent calls to this functions will have very distinct hues.
+    /// This is achieved by using a golden-ratio-loop and an internal cache of the last generated color.
+    let randomColor msg =
         let r,g,b = ColorUtil.random()
         Printf.kprintf (fun s -> Fesh.PrintColor r g b s)  msg
 
@@ -346,6 +355,15 @@ module Printfn =
     /// Very light, white and yellow colors are excluded
     /// The colors used by subsequent calls to this functions will have very distinct hues.
     /// This is achieved by using a golden-ratio-loop and an internal cache of the last generated color.
+    [<Obsolete("renamed to Printfn.randomColor")>]
     let colorRnd msg =
+        let r,g,b = ColorUtil.random()
+        Printf.kprintf (fun s -> Fesh.PrintLineColor r g b s)  msg
+
+    /// Like printfn but in random Color if used in Fesh Editor. Adds a new line at end.
+    /// Very light, white and yellow colors are excluded
+    /// The colors used by subsequent calls to this functions will have very distinct hues.
+    /// This is achieved by using a golden-ratio-loop and an internal cache of the last generated color.
+    let randomColor msg =
         let r,g,b = ColorUtil.random()
         Printf.kprintf (fun s -> Fesh.PrintLineColor r g b s)  msg
