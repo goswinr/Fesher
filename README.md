@@ -22,9 +22,11 @@ The function 'clearFeshLog()' will clear the Fesh log window.
 ### Usage
 
 ```fsharp
+#r "nuget: Fescher"
 open Fesher // for the 18 most common colors
 //open Fesher.AllColors // for all 280 named WPF colors
 
+clearFeshLog() //optionally clear log window 
 Printfn.red "The red answer is %s!" 42
 ```
 
