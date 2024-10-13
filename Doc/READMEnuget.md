@@ -15,6 +15,8 @@ If used outside of Fesh it will just fall back to `printfn` and `printf`.
 
 The module `Fesher.AllColors` provides [all 280 named WPF colors](https://learn.microsoft.com/en-us/dotnet/api/system.windows.media.colors) as functions.
 
+The function 'clearFeshLog()' will clear the Fesh log window.
+
 ### Usage
 
 ```fsharp
