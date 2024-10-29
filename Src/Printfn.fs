@@ -216,6 +216,31 @@ module AutoOpenPrint =
     [<Obsolete("Renamed to clearFeshLog")>]
     let clearSeffLog() = Fesh.Clear()
 
+    /// Sets the clipboard with the given string.
+    /// In case of error, prints the error to stderr.
+    let setClipboard (s:string) =
+        try
+            System.Windows.Clipboard.SetText(s) // WPF
+        with ex ->
+            eprintfn "Fesher: Failed to set Clipboard with:\r\n%A" ex
+
+
+    /// Gets the clipboard content as string.
+    /// In case of error, returns an empty string and prints the error to stderr.
+    let getClipboard () =
+        try
+            System.Windows.Clipboard.GetText() // WPF
+        with ex ->
+            eprintfn "Fesher: Failed to get Clipboard with:\r\n%A" ex
+            ""
+
+    /// Tries to get the clipboard content as string.
+    let tryGetClipboard () =
+        try
+            System.Windows.Clipboard.GetText() |> Option.ofObj
+        with _ ->
+            None
+
 
 
 /// Tries to printf with colors if running inside Fesh Editor.
@@ -276,10 +301,7 @@ module Printf =
     /// Like printf but in Cyan if used in Fesh Editor. Does not add a new line at end.
     let cyan msg = Printf.kprintf (fun s -> Fesh.PrintColor 0 150 150 s)  msg
 
-    /// Like printf but in Random Color if used in Fesh Editor. Does not add a new line at end.
-    /// Very light, white and yellow colors are excluded
-    /// The colors used by subsequent calls to this functions will have very distinct hues.
-    /// This is achieved by using a golden-ratio-loop and an internal cache of the last generated color.
+
     [<Obsolete("renamed to Printf.randomColor")>]
     let colorRnd msg =
         let r,g,b = ColorUtil.random()
@@ -351,10 +373,7 @@ module Printfn =
     /// Like printfn but in Cyan if used in Fesh Editor. Adds a new line at end.
     let cyan msg = Printf.kprintf (fun s -> Fesh.PrintLineColor 0 150 150 s)  msg
 
-    /// Like printfn but in random Color if used in Fesh Editor. Adds a new line at end.
-    /// Very light, white and yellow colors are excluded
-    /// The colors used by subsequent calls to this functions will have very distinct hues.
-    /// This is achieved by using a golden-ratio-loop and an internal cache of the last generated color.
+
     [<Obsolete("renamed to Printfn.randomColor")>]
     let colorRnd msg =
         let r,g,b = ColorUtil.random()

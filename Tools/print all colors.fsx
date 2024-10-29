@@ -4,36 +4,36 @@ open FsEx
 
 module Colors =
     open System
-    open System.Drawing 
-    
+    open System.Drawing
+
     //returns square distance
     let diffSq(c1:Color) (c2:Color) =
         let r = int64 c1.R - int64 c2.R
         let g = int64 c1.G - int64 c2.G
         let b = int64 c1.B - int64 c2.B
         r*r + g*g + b*b
-        
-    let diff(c1:Color) (c2:Color) =    
+
+    let diff(c1:Color) (c2:Color) =
         diffSq c1 c2
         |> float
         |> sqrt
         |> round
         |> int
-    
-    let darker i (c:Color)= 
+
+    let darker i (c:Color)=
         let r = int c.R
         let g = int c.G
-        let b = int c.B 
+        let b = int c.B
         Color.FromArgb(max 0 (r-i),max 0 (g-i), max 0 (b-i))
-    
-    let brighter i (c:Color)= 
+
+    let brighter i (c:Color)=
         let r = int c.R
         let g = int c.G
-        let b = int c.B 
-        Color.FromArgb(min 255 (r+i),min 255 (g+i), min 255 (b+i))  
-        
-    
-    let  namedColors =   
+        let b = int c.B
+        Color.FromArgb(min 255 (r+i),min 255 (g+i), min 255 (b+i))
+
+
+    let  namedColors =
         [|
         Color.AliceBlue
         Color.AntiqueWhite
@@ -167,7 +167,7 @@ module Colors =
         Color.Tan
         Color.Teal
         Color.Thistle
-        Color.Tomato 
+        Color.Tomato
         Color.Turquoise
         Color.Violet
         Color.Wheat
@@ -176,48 +176,48 @@ module Colors =
         Color.Yellow
         Color.YellowGreen
         |]
-    
-    
+
+
     let findClosestNamed(c:Color) =
-        namedColors |> Array.minBy(diffSq c) 
-        
-        
-    let printAll() = 
-        for i, c in Seq.indexed namedColors do  
+        namedColors |> Array.minBy(diffSq c)
+
+
+    let printAll() =
+        for i, c in Seq.indexed namedColors do
             let r = int c.R
             let g = int c.G
             let b = int c.B
             let t = $"███████████ {c.Name}"|> String.padRight 30 |> String.truncate 30
             Printf.color r g b $"{t}"
-            
+
             let d20 = darker 20 c
             let r = int d20.R
             let g = int d20.G
             let b = int d20.B
             let t = $"███████████ {c.Name} {r}-{g}-{b}"|> String.padRight 42|> String.truncate 42
             Printf.color r g b $"{t}"
-            
+
             let d40 = darker 40 c
             let r = int d40.R
             let g = int d40.G
             let b = int d40.B
             let t = $"███████████ {c.Name}"|> String.padRight 30|> String.truncate 30
             Printf.color r g b $"{t}"
-            
+
             let d80 = darker 80 c
             let r = int d80.R
             let g = int d80.G
             let b = int d80.B
             let t = $"███████████ {c.Name} {r}-{g}-{b}"
             Printfn.color r g b $"{t}"
-            
-            
-            
-            //if i%3=0 then Printfn.color r g b $"{t}" else Printf.color r g b $"{t}"
-            
-           
 
-clearSeffLog()   
+
+
+            //if i%3=0 then Printfn.color r g b $"{t}" else Printf.color r g b $"{t}"
+
+
+
+clearFeshLog()
 Colors.printAll()
 
 
