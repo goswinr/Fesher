@@ -32,10 +32,6 @@ Printfn.red "The red answer is %s!" 42
 
 ![Screenshot](https://raw.githubusercontent.com/goswinr/Fesher/main/Docs/screen.png)
 
-apart from printing you can also get or set the clipboard
-```fsharp
-setClipboard("xyz") //copy some text to the clipboard
-```
 
 ### License
 [MIT](https://raw.githubusercontent.com/goswinr/Fesher/main/LICENSE.md)

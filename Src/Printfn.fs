@@ -216,6 +216,12 @@ module AutoOpenPrint =
     [<Obsolete("Renamed to clearFeshLog")>]
     let clearSeffLog() = Fesh.Clear()
 
+    (*
+    <UseWPF>true</UseWPF>  <!-- for clipboard access -->
+    ## [0.4.0] - 2024-11-10
+    ### Removed
+    - removed clipboard functions to keep Cross platform compatibility
+
     /// Sets the clipboard with the given string.
     /// In case of error, prints the error to stderr.
     let setClipboard (s:string) =
@@ -240,6 +246,7 @@ module AutoOpenPrint =
             System.Windows.Clipboard.GetText() |> Option.ofObj
         with _ ->
             None
+    *)
 
 
 
