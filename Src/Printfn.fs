@@ -216,39 +216,6 @@ module AutoOpenPrint =
     [<Obsolete("Renamed to clearFeshLog")>]
     let clearSeffLog() = Fesh.Clear()
 
-    (*
-    <UseWPF>true</UseWPF>  <!-- for clipboard access -->
-    ## [0.4.0] - 2024-11-10
-    ### Removed
-    - removed clipboard functions to keep Cross platform compatibility
-
-    /// Sets the clipboard with the given string.
-    /// In case of error, prints the error to stderr.
-    let setClipboard (s:string) =
-        try
-            System.Windows.Clipboard.SetText(s) // WPF
-        with ex ->
-            eprintfn "Fesher: Failed to set Clipboard with:\r\n%A" ex
-
-
-    /// Gets the clipboard content as string.
-    /// In case of error, returns an empty string and prints the error to stderr.
-    let getClipboard () =
-        try
-            System.Windows.Clipboard.GetText() // WPF
-        with ex ->
-            eprintfn "Fesher: Failed to get Clipboard with:\r\n%A" ex
-            ""
-
-    /// Tries to get the clipboard content as string.
-    let tryGetClipboard () =
-        try
-            System.Windows.Clipboard.GetText() |> Option.ofObj
-        with _ ->
-            None
-    *)
-
-
 
 /// Tries to printf with colors if running inside Fesh Editor.
 /// Else just normal printf
