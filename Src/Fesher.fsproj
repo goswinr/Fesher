@@ -47,7 +47,7 @@
 
   <ItemGroup>
     <PackageReference Update="FSharp.Core" Version="6.0.7" />
-    <PackageReference Include="Ionide.KeepAChangelog.Tasks" Version="0.1.8" PrivateAssets="all"  />
+    <PackageReference Include="Ionide.KeepAChangelog.Tasks" Version="0.3.1" PrivateAssets="all"  />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive" />
   </ItemGroup>
 
@@ -57,4 +57,10 @@
     <Compile Include="Printfn.fs" />
     <Compile Include="PrintfnAll.fs" />
   </ItemGroup>
+
+
+  <Target Name="WriteChangelogVersion" AfterTargets="AfterBuild"><!-- for version checks in github tag based builds -->
+    <WriteLinesToFile File="./bin/ChangelogVersion.txt" Lines="@(CurrentReleaseChangelog)" Overwrite="true" ContinueOnError="false" />
+  </Target>
+
 </Project>

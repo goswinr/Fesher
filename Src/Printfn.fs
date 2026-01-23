@@ -208,6 +208,13 @@ module AutoOpenPrint =
         printWithHighlightColor 240 0 0 180 180 180 word fullLine
 
 
+    /// Fesher.print any value in a pale purple color if running inside Fesh Editor.
+    /// Uses "%A" format.
+    /// Does add a new line at the end.
+    let print (x:'T) =
+        Printf.kprintf (fun s -> Fesh.PrintLineColor 108 40 108 s) "%A" x
+
+
     /// Tries to clears the Fesh Log View, if it can be found via reflection in loaded assemblies.
     /// Else does nothing.
     /// Can be called from any thread.
