@@ -5,6 +5,8 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    cooldown:
+      default-days: 7
 
   # Update to newer NuGet dependencies
   - package-ecosystem: "nuget"
@@ -18,3 +20,10 @@ updates:
       - dependency-type: "all"
     ignore:
       - dependency-name: "FSharp.Core"
+    cooldown:
+      default-days: 7
+
+  # - package-ecosystem: "nuget"
+  #   directory: "/Tests/"
+  #   schedule:
+  #     interval: "daily"
