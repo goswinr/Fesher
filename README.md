@@ -5,7 +5,7 @@
 [![Fesher on nuget.org](https://img.shields.io/nuget/v/Fesher)](https://www.nuget.org/packages/Fesher/)
 [![Build Status](https://github.com/goswinr/Fesher/actions/workflows/build.yml/badge.svg)](https://github.com/goswinr/Fesher/actions/workflows/build.yml)
 ![code size](https://img.shields.io/github/languages/code-size/goswinr/Fesher.svg)
-[![license](https://img.shields.io/github/license/goswinr/Fesher)](LICENSE)
+[![license](https://img.shields.io/github/license/goswinr/Fesher)](LICENSE.md)
 
 
 Fesher is a library for colorful console output in the F# scripting editor [Fesh](https://github.com/goswinr/Fesh)
